@@ -41,5 +41,5 @@ Thumbs.db
 *.dotCover
 
 # frameoworks binaries
-Xamarin.NYTPhotoViewer/frameworks/
+
 *.nupkg
