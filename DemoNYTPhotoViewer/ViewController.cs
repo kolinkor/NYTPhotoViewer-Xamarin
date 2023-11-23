@@ -3,7 +3,6 @@ using CoreGraphics;
 using Foundation;
 using UIKit;
 using Xamarin.NYTPhotoViewer;
-using FFImageLoading;
 using System.Threading.Tasks;
 
 namespace DemoNYTPhotoViewer
@@ -55,56 +54,7 @@ namespace DemoNYTPhotoViewer
             {
                 if (_dataSource.PhotoAtIndex(i) is CustomPhoto customPhoto)
                 {
-                    LazyLoading(i, customPhoto);
-                }
-            }
-        }
-
-        private void LazyLoading(int index, CustomPhoto customPhoto)
-        {
-            try
-            {
-                FFImageLoading.Work.TaskParameter taskParameter = null;
-                if (!string.IsNullOrWhiteSpace(customPhoto.BundleName))
-                {
-                    taskParameter = ImageService.Instance.LoadFileFromApplicationBundle(customPhoto.BundleName);
-                }
-                else if (!string.IsNullOrWhiteSpace(customPhoto.RemotePath))
-                {
-                    taskParameter = ImageService.Instance.LoadUrl(customPhoto.RemotePath);
-                }
-
-                if (taskParameter != null)
-                {
-                    taskParameter.BitmapOptimizations(false).Success((FFImageLoading.Work.ImageInformation arg1, FFImageLoading.Work.LoadingResult arg2) => 
-                    {
-                        System.Diagnostics.Debug.WriteLine($"{arg1.OriginalWidth} x {arg1.OriginalHeight}");
-                        System.Diagnostics.Debug.WriteLine($"{arg1.CurrentWidth} x {arg1.CurrentHeight}");
-
-                        System.Diagnostics.Debug.WriteLine(arg1);
-                    }).AsUIImageAsync().ContinueWith(t =>
-                    {
-                        OnImageUpdated(index, t.Result);
-                    }, TaskScheduler.FromCurrentSynchronizationContext());
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex);
-            }
-        }
-
-        private void OnImageUpdated(int index, UIImage image)
-        {
-            if (image != null && _dataSource != null)
-            {
-                if (_dataSource.PhotoAtIndex(index) is CustomPhoto customPhoto)
-                {
-                    customPhoto.UpdateImage(image);
-
-                    System.Diagnostics.Debug.WriteLine($"{index} : {image.Size} - {image.CurrentScale}");
-                    // notify
-                    _controller.UpdatePhotoAtIndex(index);
+                    customPhoto.UpdateImage(UIImage.FromBundle(customPhoto.BundleName));
                 }
             }
         }
@@ -115,8 +65,8 @@ namespace DemoNYTPhotoViewer
             {
                 CustomPhoto.FromBundle("gallery_1.jpg"),
                 CustomPhoto.FromBundle("gallery_2.jpg"),
-                CustomPhoto.FromRemote("https://images.pexels.com/photos/587409/pexels-photo-587409.jpeg?dl&fit=crop&crop=entropy&w=1920&h=1280"),
-                CustomPhoto.FromRemote("https://images.pexels.com/photos/1296396/pexels-photo-1296396.jpeg?dl&fit=crop&crop=entropy&w=1920&h=1280"),
+                CustomPhoto.FromBundle("gallery_3.jpg"),
+                CustomPhoto.FromBundle("gallery_4.jpg"),
             };
 
             NYTPhotoViewerArrayDataSource res = new NYTPhotoViewerArrayDataSource(photos);
