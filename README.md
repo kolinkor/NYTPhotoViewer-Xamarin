@@ -7,7 +7,7 @@
 - Nuget: https://www.nuget.org/packages/Xamarin.NYTPhotoViewer
 
 ```
-Install-Package Xamarin.NYTPhotoViewer
+Install-Package NET-iOS.NYTPhotoViewer
 ```
 
 ## Orignal library
