@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0-ios</TargetFramework>
+    <TargetFramework>net8.0-ios</TargetFramework>
     <OutputType>Exe</OutputType>
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <Configurations>Debug;Release</Configurations>
     <Platforms>iPhoneSimulator;iPhone;AnyCPU</Platforms>
     <SupportedOSPlatformVersion>11.0</SupportedOSPlatformVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
@@ -39,7 +40,7 @@
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARM64</MtouchArch>
+    <RuntimeIdentifiers>ios-arm64</RuntimeIdentifiers>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
@@ -52,7 +53,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
+    <RuntimeIdentifiers>iossimulator-x64</RuntimeIdentifiers>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
@@ -73,7 +74,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <IOSDebuggerPort>56513</IOSDebuggerPort>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARM64</MtouchArch>
+    <RuntimeIdentifiers>ios-arm64</RuntimeIdentifiers>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>

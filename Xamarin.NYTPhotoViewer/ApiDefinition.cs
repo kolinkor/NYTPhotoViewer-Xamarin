@@ -96,102 +96,102 @@ namespace Xamarin.NYTPhotoViewer
         NYTPhoto Photo { get; }
     }
 
-    // @interface NYTPhotoDismissalInteractionController : NSObject <UIViewControllerInteractiveTransitioning>
-    [BaseType(typeof(NSObject))]
-    interface NYTPhotoDismissalInteractionController : IUIViewControllerInteractiveTransitioning
-    {
-        // @property (nonatomic) id<UIViewControllerAnimatedTransitioning> _Nonnull animator;
-        [Export("animator", ArgumentSemantic.Assign)]
-        UIViewControllerAnimatedTransitioning Animator { get; set; }
+    // // @interface NYTPhotoDismissalInteractionController : NSObject <UIViewControllerInteractiveTransitioning>
+    // [BaseType(typeof(NSObject))]
+    // interface NYTPhotoDismissalInteractionController : IUIViewControllerInteractiveTransitioning
+    // {
+    //     // @property (nonatomic) id<UIViewControllerAnimatedTransitioning> _Nonnull animator;
+    //     [Export("animator", ArgumentSemantic.Assign)]
+    //     UIViewControllerAnimatedTransitioning Animator { get; set; }
+    //
+    //     // @property (nonatomic) UIView * _Nullable viewToHideWhenBeginningTransition;
+    //     [NullAllowed, Export("viewToHideWhenBeginningTransition", ArgumentSemantic.Assign)]
+    //     UIView ViewToHideWhenBeginningTransition { get; set; }
+    //
+    //     // @property (nonatomic) BOOL shouldAnimateUsingAnimator;
+    //     [Export("shouldAnimateUsingAnimator")]
+    //     bool ShouldAnimateUsingAnimator { get; set; }
+    //
+    //     // -(void)didPanWithPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)panGestureRecognizer viewToPan:(UIView * _Nonnull)viewToPan anchorPoint:(CGPoint)anchorPoint;
+    //     [Export("didPanWithPanGestureRecognizer:viewToPan:anchorPoint:")]
+    //     void DidPanWithPanGestureRecognizer(UIPanGestureRecognizer panGestureRecognizer, UIView viewToPan, CGPoint anchorPoint);
+    // }
+    
+    // // @interface NYTPhotoTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
+    // [BaseType(typeof(NSObject))]
+    // interface NYTPhotoTransitionAnimator : IUIViewControllerAnimatedTransitioning
+    // {
+    //     // @property (nonatomic) UIView * _Nonnull startingView;
+    //     [Export("startingView", ArgumentSemantic.Assign)]
+    //     UIView StartingView { get; set; }
+    //
+    //     // @property (nonatomic) UIView * _Nonnull endingView;
+    //     [Export("endingView", ArgumentSemantic.Assign)]
+    //     UIView EndingView { get; set; }
+    //
+    //     // @property (nonatomic) UIView * _Nullable startingViewForAnimation;
+    //     [NullAllowed, Export("startingViewForAnimation", ArgumentSemantic.Assign)]
+    //     UIView StartingViewForAnimation { get; set; }
+    //
+    //     // @property (nonatomic) UIView * _Nullable endingViewForAnimation;
+    //     [NullAllowed, Export("endingViewForAnimation", ArgumentSemantic.Assign)]
+    //     UIView EndingViewForAnimation { get; set; }
+    //
+    //     // @property (getter = isDismissing, nonatomic) BOOL dismissing;
+    //     [Export("dismissing")]
+    //     bool Dismissing { [Bind("isDismissing")] get; set; }
+    //
+    //     // @property (nonatomic) CGFloat animationDurationWithZooming;
+    //     [Export("animationDurationWithZooming")]
+    //     nfloat AnimationDurationWithZooming { get; set; }
+    //
+    //     // @property (nonatomic) CGFloat animationDurationWithoutZooming;
+    //     [Export("animationDurationWithoutZooming")]
+    //     nfloat AnimationDurationWithoutZooming { get; set; }
+    //
+    //     // @property (nonatomic) CGFloat animationDurationFadeRatio;
+    //     [Export("animationDurationFadeRatio")]
+    //     nfloat AnimationDurationFadeRatio { get; set; }
+    //
+    //     // @property (nonatomic) CGFloat animationDurationEndingViewFadeInRatio;
+    //     [Export("animationDurationEndingViewFadeInRatio")]
+    //     nfloat AnimationDurationEndingViewFadeInRatio { get; set; }
+    //
+    //     // @property (nonatomic) CGFloat animationDurationStartingViewFadeOutRatio;
+    //     [Export("animationDurationStartingViewFadeOutRatio")]
+    //     nfloat AnimationDurationStartingViewFadeOutRatio { get; set; }
+    //
+    //     // @property (nonatomic) CGFloat zoomingAnimationSpringDamping;
+    //     [Export("zoomingAnimationSpringDamping")]
+    //     nfloat ZoomingAnimationSpringDamping { get; set; }
+    //
+    //     // +(UIView * _Nullable)newAnimationViewFromView:(UIView * _Nullable)view;
+    //     [Static]
+    //     [Export("newAnimationViewFromView:")]
+    //     [return: NullAllowed]
+    //     UIView NewAnimationViewFromView([NullAllowed] UIView view);
+    // }
 
-        // @property (nonatomic) UIView * _Nullable viewToHideWhenBeginningTransition;
-        [NullAllowed, Export("viewToHideWhenBeginningTransition", ArgumentSemantic.Assign)]
-        UIView ViewToHideWhenBeginningTransition { get; set; }
-
-        // @property (nonatomic) BOOL shouldAnimateUsingAnimator;
-        [Export("shouldAnimateUsingAnimator")]
-        bool ShouldAnimateUsingAnimator { get; set; }
-
-        // -(void)didPanWithPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)panGestureRecognizer viewToPan:(UIView * _Nonnull)viewToPan anchorPoint:(CGPoint)anchorPoint;
-        [Export("didPanWithPanGestureRecognizer:viewToPan:anchorPoint:")]
-        void DidPanWithPanGestureRecognizer(UIPanGestureRecognizer panGestureRecognizer, UIView viewToPan, CGPoint anchorPoint);
-    }
-
-    // @interface NYTPhotoTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-    [BaseType(typeof(NSObject))]
-    interface NYTPhotoTransitionAnimator : IUIViewControllerAnimatedTransitioning
-    {
-        // @property (nonatomic) UIView * _Nonnull startingView;
-        [Export("startingView", ArgumentSemantic.Assign)]
-        UIView StartingView { get; set; }
-
-        // @property (nonatomic) UIView * _Nonnull endingView;
-        [Export("endingView", ArgumentSemantic.Assign)]
-        UIView EndingView { get; set; }
-
-        // @property (nonatomic) UIView * _Nullable startingViewForAnimation;
-        [NullAllowed, Export("startingViewForAnimation", ArgumentSemantic.Assign)]
-        UIView StartingViewForAnimation { get; set; }
-
-        // @property (nonatomic) UIView * _Nullable endingViewForAnimation;
-        [NullAllowed, Export("endingViewForAnimation", ArgumentSemantic.Assign)]
-        UIView EndingViewForAnimation { get; set; }
-
-        // @property (getter = isDismissing, nonatomic) BOOL dismissing;
-        [Export("dismissing")]
-        bool Dismissing { [Bind("isDismissing")] get; set; }
-
-        // @property (nonatomic) CGFloat animationDurationWithZooming;
-        [Export("animationDurationWithZooming")]
-        nfloat AnimationDurationWithZooming { get; set; }
-
-        // @property (nonatomic) CGFloat animationDurationWithoutZooming;
-        [Export("animationDurationWithoutZooming")]
-        nfloat AnimationDurationWithoutZooming { get; set; }
-
-        // @property (nonatomic) CGFloat animationDurationFadeRatio;
-        [Export("animationDurationFadeRatio")]
-        nfloat AnimationDurationFadeRatio { get; set; }
-
-        // @property (nonatomic) CGFloat animationDurationEndingViewFadeInRatio;
-        [Export("animationDurationEndingViewFadeInRatio")]
-        nfloat AnimationDurationEndingViewFadeInRatio { get; set; }
-
-        // @property (nonatomic) CGFloat animationDurationStartingViewFadeOutRatio;
-        [Export("animationDurationStartingViewFadeOutRatio")]
-        nfloat AnimationDurationStartingViewFadeOutRatio { get; set; }
-
-        // @property (nonatomic) CGFloat zoomingAnimationSpringDamping;
-        [Export("zoomingAnimationSpringDamping")]
-        nfloat ZoomingAnimationSpringDamping { get; set; }
-
-        // +(UIView * _Nullable)newAnimationViewFromView:(UIView * _Nullable)view;
-        [Static]
-        [Export("newAnimationViewFromView:")]
-        [return: NullAllowed]
-        UIView NewAnimationViewFromView([NullAllowed] UIView view);
-    }
-
-    // @interface NYTPhotoTransitionController : NSObject <UIViewControllerTransitioningDelegate>
-    [BaseType(typeof(NSObject))]
-    interface NYTPhotoTransitionController : IUIViewControllerTransitioningDelegate
-    {
-        // @property (nonatomic) UIView * _Nonnull startingView;
-        [Export("startingView", ArgumentSemantic.Assign)]
-        UIView StartingView { get; set; }
-
-        // @property (nonatomic) UIView * _Nonnull endingView;
-        [Export("endingView", ArgumentSemantic.Assign)]
-        UIView EndingView { get; set; }
-
-        // @property (nonatomic) BOOL forcesNonInteractiveDismissal;
-        [Export("forcesNonInteractiveDismissal")]
-        bool ForcesNonInteractiveDismissal { get; set; }
-
-        // -(void)didPanWithPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)panGestureRecognizer viewToPan:(UIView * _Nonnull)viewToPan anchorPoint:(CGPoint)anchorPoint;
-        [Export("didPanWithPanGestureRecognizer:viewToPan:anchorPoint:")]
-        void DidPanWithPanGestureRecognizer(UIPanGestureRecognizer panGestureRecognizer, UIView viewToPan, CGPoint anchorPoint);
-    }
+    // // @interface NYTPhotoTransitionController : NSObject <UIViewControllerTransitioningDelegate>
+    // [BaseType(typeof(NSObject))]
+    // interface NYTPhotoTransitionController : IUIViewControllerTransitioningDelegate
+    // {
+    //     // @property (nonatomic) UIView * _Nonnull startingView;
+    //     [Export("startingView", ArgumentSemantic.Assign)]
+    //     UIView StartingView { get; set; }
+    //
+    //     // @property (nonatomic) UIView * _Nonnull endingView;
+    //     [Export("endingView", ArgumentSemantic.Assign)]
+    //     UIView EndingView { get; set; }
+    //
+    //     // @property (nonatomic) BOOL forcesNonInteractiveDismissal;
+    //     [Export("forcesNonInteractiveDismissal")]
+    //     bool ForcesNonInteractiveDismissal { get; set; }
+    //
+    //     // -(void)didPanWithPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)panGestureRecognizer viewToPan:(UIView * _Nonnull)viewToPan anchorPoint:(CGPoint)anchorPoint;
+    //     [Export("didPanWithPanGestureRecognizer:viewToPan:anchorPoint:")]
+    //     void DidPanWithPanGestureRecognizer(UIPanGestureRecognizer panGestureRecognizer, UIView viewToPan, CGPoint anchorPoint);
+    // }
 
     [Static]
     //[Verify(ConstantsInterfaceAssociation)]

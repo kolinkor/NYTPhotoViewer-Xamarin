@@ -1,20 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0-ios</TargetFramework>
-    <RootNamespace>AppiraterBinding</RootNamespace>
+    <TargetFramework>net8.0-ios</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <MtouchExtraArgs>--interpreter</MtouchExtraArgs>
+    <UseInterpreter>true</UseInterpreter>
 
      <!-- Nuget package -->
     <PackageId>NET-iOS.NYTPhotoViewer</PackageId>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <Authors>kolinkor</Authors>
     <Title>NYTPhotoViewer</Title>
     <PackageProjectUrl>https://github.com/kolinkor/NYTPhotoViewer-Xamarin</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Description>NYTPhotoViewer binding for Net 7.0 iOS</Description>
-    <PackageReleaseNotes>NYTPhotoViewer binding for Net 7.0 iOS</PackageReleaseNotes>
+    <Description>NYTPhotoViewer binding for Net 8.0 iOS</Description>
+    <PackageReleaseNotes>NYTPhotoViewer binding for Net 8.0 iOS</PackageReleaseNotes>
     <PackageTags>xamarin ios NYTPhotoViewer</PackageTags>
   </PropertyGroup>
   
